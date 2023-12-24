@@ -1,10 +1,50 @@
 ﻿concept1,concept1_desc,concept2,concept2_desc,relationship_desc
 Estimate,"Not fixed number. Use data to learn the properties for a sample. A sophisticated ""guess"".",Random variables,A variable that takes values according to a certain probability distribution,
 Parameter,Fixed number. Maybe aka the population stats.,Other,,
-Univariate distribution,xxxxxx,Distribution,abcxyz,
-CDF,"All random variables have it.
-F(c) ≡ Pr(X ≤ c). ",Univariate distribution,,A type of dist
-PMF,"All discrete random variables have it.
-f(c) ≡ Pr(X = c)",Univariate distribution,,A type of dist
-PDF,"All continuous variables have it.
-Integral of f(x)",Univariate distribution,,A type of dist
+Univariate distribution,xxxxxx,Distribution,xxxx,
+CDF,"All random variables (both discrete and continuous) have it.
+- F(c) ≡ Pr(X ≤ c)
+- 0 ≤ F(x) ≤ 1
+- If xj < xk then F(xj) ≤ F(xk)
+- derivative of F(x) is f(x)",Univariate distribution,,A type of dist
+PMF,"All DISCRETE random variables have it.
+- f(c) ≡ Pr(X = c)
+- 0 ≤ f(c) ≤ 1 for ∀c
+- Sum of f(x) for ∀x is 1
+- Sum f(x_i) from i=1 to j = F(x_j)",Univariate distribution,,A type of dist
+PDF,"All CONTINUOUS variables have it.
+- f (x) ≥ 0 for ∀x
+- f(x) is not a probability and can be > 1
+- Pr(x = x0) = integral of f(x)dx from x0 to x0 = F(x0) - F(x0) = 0
+- Pr(x = some_x) = integral of given f(x)",Univariate distribution,,A type of dist
+Moments,"Central moments
+
+There are examples of distributions that do not have particular moments. Something like:
+- zeta distribution and Riemann's zeta function
+- Cauchy distribution",Univariate distribution,,
+Expected value,"First moment or Mean
+E(x) ≡ µ
+- Discrete: Sum of x_i * f(x_i) for all x_i
+- Continous: Integral of x * f(x)
+
+Properties:
+- If c is a constant, E(c) = c and E(cx) = cE(x)",Moments,,
+Variance,"Second moment
+E((x−µ)^2) ≡ σ^2
+- Discrete: Sum of (x_i - µ)^2 * f(x_i) for all x_i
+- Continous: Integral of (x-µ)^2 * f(x)
+
+Properties:
+- Var(x) = σ^2
+- If y=a+bx, then Var(y) = b^2 * Var(x)
+- Var(constant) = 0
+- σ^2 = E((x-µ)^2) = E(x^2) - µ^2 = E(x^2) - (E(x))^2",Moments,,
+Standard deviation,"Normally, variance is for each observation which is how different it is from mean. 
+
+Standard deviation is just a number for a distribution that is the most average of all observations.",Variance,,
+Skewness,"Third moment
+
+- if skewness is positive, distribution is skewed to right
+- if skewness is negative, distribution is skewed to left
+
+Very important, please dig deeper",Moments,,

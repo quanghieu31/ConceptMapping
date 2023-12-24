@@ -1,1 +1,1 @@
-Visualize key statistics concepts in a network fashion.
+Visualize key statistics concepts (for now) in a network fashion.

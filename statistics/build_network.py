@@ -1,8 +1,12 @@
 import json
-from dash import Dash, html, Input, Output, callback
+from dash import Dash, html, Input, Output, callback, dcc
 import dash_cytoscape as cyto
 import networkx as nx
 import pandas as pd
+import random
+
+# For reproducibility
+random.seed(31)
 
 # Read data from csv file.
 data = pd.read_csv('statistics\\ConceptData.csv', header=0)
@@ -54,10 +58,9 @@ elements['nodes'] = [
             "label": node,
             "text-halign": "center",
             "text-valign": "center",
-            "background-color": "#6FA1D2" if node not in key_main_concepts else "#FFD700",
+            "background-color": "#bde0fe" if node not in key_main_concepts else "#FFD700",
             "shape": "roundrectangle",
-            "width": max(len(node) * 10, 40),
-        }
+            "width": max(len(str(node)) * 10, 40)}
     }
     for node in G.nodes
 ]
@@ -76,10 +79,12 @@ def display_info(data):
         return ""
     # Check if concept1 node
     if "concept1_desc" in G.nodes[selected_node]:
-        return G.nodes[selected_node]["concept1_desc"]
+        concept1_desc = G.nodes[selected_node]["concept1_desc"]
+        return dcc.Markdown(concept1_desc, dangerously_allow_html=True)
     # Otherwise concept2 node
     elif "concept2_desc" in G.nodes[selected_node]:
-        return G.nodes[selected_node]["concept2_desc"]
+        concept2_desc = G.nodes[selected_node]["concept2_desc"]
+        return dcc.Markdown(concept2_desc, dangerously_allow_html=True)
     else:
         return ""
 
@@ -107,19 +112,28 @@ def display_edge_info(data):
 # Add a div to display selected node or edge information
 app.layout = html.Div([
     cyto.Cytoscape(
-        # Specific id for network graph in dash library
         id='cytoscape',
-        layout={'name': 'circle', 'radius': 100},  # Adjust the radius for node spacing
+        layout={
+            'name': 'cose',
+            'idealEdgeLength': 200,
+            'nodeOverlap': 200,
+            'avoidOverlap': True,
+            'randomize': False,  # Disable randomization
+            'nodeRepulsion': 4000,
+            'nodeDimensionsIncludeLabels': True,
+            'padding': 10,
+            'animate': False,  # Disable animation for better initial positioning
+            'fit': True,  # Fit the graph to the container
+            'maximalAdjustments': 100,  # Increase to make adjustments more aggressively
+            'boundingBox': {'x1': 0, 'y1': 0, 'x2': 800, 'y2': 800},  # Set bounding box
+            'numIter': 1000,  # Increase the number of iterations for better positioning
+        },
         elements=elements,
-        style={'width': '70%', 'height': '100vh', 'float': 'left', 'border': '1px solid black'},
-        # Custom style:
-        stylesheet=[
-            {'selector': 'node',
-             'style': {'font-size': '20px'}}
-        ]
+        style={'width': '75%', 'height': '100vh', 'float': 'left'},
+        stylesheet=[{'selector': 'node', 'style': {'font-size': '15px'}}]
     ),
     html.Div(id="info-node", style={"margin-right": "25px", "margin-left": "20px", "fontSize": "20px"}),
-    html.Div(id="info-edge", style={"margin-right": "25px", "margin-left": "20px", "fontSize": "20px"}) 
+    html.Div(id="info-edge", style={"margin-right": "25px", "margin-left": "20px", "fontSize": "20px"})
 ])
 
 if __name__ == '__main__':
