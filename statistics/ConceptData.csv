@@ -1,0 +1,10 @@
+﻿concept1,concept1_desc,concept2,concept2_desc,relationship_desc
+Estimate,"Not fixed number. Use data to learn the properties for a sample. A sophisticated ""guess"".",Random variables,A variable that takes values according to a certain probability distribution,
+Parameter,Fixed number. Maybe aka the population stats.,Other,,
+Univariate distribution,xxxxxx,Distribution,abcxyz,
+CDF,"All random variables have it.
+F(c) ≡ Pr(X ≤ c). ",Univariate distribution,,A type of dist
+PMF,"All discrete random variables have it.
+f(c) ≡ Pr(X = c)",Univariate distribution,,A type of dist
+PDF,"All continuous variables have it.
+Integral of f(x)",Univariate distribution,,A type of dist

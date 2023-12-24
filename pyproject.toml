@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "conceptmapping"
+version = "0.1.0"
+description = ""
+authors = ["hieu nguyen <doanquanghieu.nguyen@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dash = "^2.14.2"
+pandas = "^2.1.4"
+networkx = "^3.2.1"
+matplotlib = "^3.8.2"
+dash-cytoscape = "^0.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
