@@ -1,7 +1,9 @@
 ﻿concept1,concept1_desc,concept2,concept2_desc,relationship_desc
 Estimate,"Not fixed number. Use data to learn the properties for a sample. A sophisticated ""guess"".",Random variables,A variable that takes values according to a certain probability distribution,
 Parameter,Fixed number. Maybe aka the population stats.,Other,,
-Univariate distribution,xxxxxx,Distribution,xxxx,
+Univariate distribution,"A univariate distribution refers to the distribution of a single random variable. In other words, it describes the way in which the values of a single variable are spread or distributed. The term ""univariate"" emphasizes that we are focusing on the analysis of a single variable in isolation.",Distribution,"Refers to the way in which values of a variable are spread or distributed across a range. It provides information about the possible values a variable can take and the likelihood of each value occurring.
+- Can be derived from data directly (without any assumption of the distribution)
+- At the same time, use distribution to define data: yes, I know, I am confused about this too. But essentially, you look at the given data and decide hmm what distribution might best represent the data... for example: grades in a course might be a normal distribution and use properties of a normal dist to understand the distribution of grades",
 CDF,"All random variables (both discrete and continuous) have it.
 - F(c) ≡ Pr(X ≤ c)
 - 0 ≤ F(x) ≤ 1
@@ -17,18 +19,17 @@ PDF,"All CONTINUOUS variables have it.
 - f(x) is not a probability and can be > 1
 - Pr(x = x0) = integral of f(x)dx from x0 to x0 = F(x0) - F(x0) = 0
 - Pr(x = some_x) = integral of given f(x)",Univariate distribution,,A type of dist
-Moments,"Central moments
-
-There are examples of distributions that do not have particular moments. Something like:
-- zeta distribution and Riemann's zeta function
-- Cauchy distribution",Univariate distribution,,
 Expected value,"First moment or Mean
 E(x) ≡ µ
 - Discrete: Sum of x_i * f(x_i) for all x_i
 - Continous: Integral of x * f(x)
 
 Properties:
-- If c is a constant, E(c) = c and E(cx) = cE(x)",Moments,,
+- If c is a constant, E(c) = c and E(cx) = cE(x)",Moments,"Central moments
+
+There are examples of distributions that do not have particular moments. Something like:
+- zeta distribution and Riemann's zeta function
+- Cauchy distribution",
 Variance,"Second moment
 E((x−µ)^2) ≡ σ^2
 - Discrete: Sum of (x_i - µ)^2 * f(x_i) for all x_i
@@ -48,3 +49,10 @@ Skewness,"Third moment
 - if skewness is negative, distribution is skewed to left
 
 Very important, please dig deeper",Moments,,
+Normal distribution,,Univariate distribution,,
+Poisson distribution,,Univariate distribution,,
+Exponential distribution,,Univariate distribution,,
+Uniform distribution,,Univariate distribution,,
+Binomial distribution,,Univariate distribution,,
+Log-normal distribution,,Univariate distribution,,
+Cauchy distribution,,Univariate distribution,,

@@ -12,6 +12,7 @@ random.seed(31)
 data = pd.read_csv('statistics\\ConceptData.csv', header=0)
 # Initiate a Dash app.
 app = Dash(__name__)
+cyto.load_extra_layouts()
 
 # Initiate the network graph.
 G = nx.Graph()
@@ -29,7 +30,7 @@ for _, row in data.iterrows():
     G.add_edge(concept1, concept2, relationship_desc=relationship_desc)
 
 # List of key main concepts to highlight (yellow boxes).
-key_main_concepts = ["Distribution", "Random variables"]
+key_main_concepts = ["Distribution", "Random variables", "Moments", "Other"]
 
 # elements for cytoscape to read. note that the elements look like this:
 # 'elements': {
@@ -60,7 +61,7 @@ elements['nodes'] = [
             "text-valign": "center",
             "background-color": "#bde0fe" if node not in key_main_concepts else "#FFD700",
             "shape": "roundrectangle",
-            "width": max(len(str(node)) * 10, 40)}
+            "width": "label"}
     }
     for node in G.nodes
 ]
@@ -114,19 +115,10 @@ app.layout = html.Div([
     cyto.Cytoscape(
         id='cytoscape',
         layout={
-            'name': 'cose',
-            'idealEdgeLength': 200,
-            'nodeOverlap': 200,
-            'avoidOverlap': True,
-            'randomize': False,  # Disable randomization
-            'nodeRepulsion': 4000,
-            'nodeDimensionsIncludeLabels': True,
-            'padding': 10,
-            'animate': False,  # Disable animation for better initial positioning
-            'fit': True,  # Fit the graph to the container
-            'maximalAdjustments': 100,  # Increase to make adjustments more aggressively
-            'boundingBox': {'x1': 0, 'y1': 0, 'x2': 800, 'y2': 800},  # Set bounding box
-            'numIter': 1000,  # Increase the number of iterations for better positioning
+             'name': 'klay',
+             'avoidOverlap': True,    # Set to True to avoid node overlap
+            'spacingFactor': 1.25,    # Adjust the spacing between nodes (increase or decrease as needed)
+
         },
         elements=elements,
         style={'width': '75%', 'height': '100vh', 'float': 'left'},
