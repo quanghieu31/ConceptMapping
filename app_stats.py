@@ -10,7 +10,7 @@ from plotly.io import write_json, write_html
 random.seed(31)
 
 # Read data from csv file.
-data = pd.read_csv('statistics\\ConceptData.csv', header=0)
+data = pd.read_csv('https://raw.githubusercontent.com/quanghieu31/ConceptMapping/main/statistics/ConceptData.csv', header=0)
 # Initiate a Dash app.
 app = Dash(__name__)
 server = app.server
