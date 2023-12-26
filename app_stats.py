@@ -125,8 +125,8 @@ app.layout = html.Div([
         style={'width': '75%', 'height': '100vh', 'float': 'left'},
         stylesheet=[{'selector': 'node', 'style': {'font-size': '15px'}}]
     ),
-    html.Div(id="info-node", style={"margin-right": "25px", "margin-left": "20px", "fontSize": "20px"}),
-    html.Div(id="info-edge", style={"margin-right": "25px", "margin-left": "20px", "fontSize": "20px"})
+    html.Div(id="info-node", style={"margin-right": "25px", "margin-left": "20px", "fontSize": "15px"}),
+    html.Div(id="info-edge", style={"margin-right": "25px", "margin-left": "20px", "fontSize": "15px"})
 ])
 
 if __name__ == '__main__':

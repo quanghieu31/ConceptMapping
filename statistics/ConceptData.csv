@@ -8,9 +8,24 @@ Examples of an event in a 52-card deck:
 - ""The 5 of Hearts"" (1 element)
 - ""A Spade"" (13 elements)
 - ""A red/black card"" (0 element)",Other,,
+Log,"Use log in some cases to
+- transform skewed data or data with many outliers/extreme values
+- stabilize spread of values (variance) or heteroskedasticity
+- multiplicative to additive
+- intepret percentage changes
+- homogenize data of different scales/units
+- log of non-linear model => estimate BLUE",Other,,
 Univariate distribution,"A univariate distribution refers to the distribution of a single random variable. In other words, it describes the way in which the values of a single variable are spread or distributed. The term ""univariate"" emphasizes that we are focusing on the analysis of a single variable in isolation.",Distribution,"Refers to the way in which values of a variable are spread or distributed across a range. It provides information about the possible values a variable can take and the likelihood of each value occurring.
 - Can be derived from data directly (without any assumption of the distribution)
-- At the same time, use distribution to define data: yes, I know, I am confused about this too. But essentially, you look at the given data and decide hmm what distribution might best represent the data... for example: grades in a course might be a normal distribution and use properties of a normal dist to understand the distribution of grades",
+- At the same time, use distribution to define data: yes, I know, I am confused about this too. But essentially, you look at the given data and decide hmm what distribution might best represent the data... for example: grades in a course might be a normal distribution and use properties of a normal dist to understand the distribution of grades
+
+More elaborations: When choosing a distribution, consider how well the chosen distribution aligns with the nature of the data and the processes that generated it.
+
+- Underlying Processes: How does the phenomenon work? Understanding the mechanisms that give rise to the data is crucial. For example, if you are modeling the time until a light bulb fails, the underlying process may involve various factors such as manufacturing variations, usage patterns, and environmental conditions. A distribution that reflects the failure mechanisms appropriately (e.g., exponential or Weibull for reliability analysis) would be chosen based on this understanding.
+- Characteristics of the Data: What are the key features of the data? Consider the statistical properties of the data, such as its central tendency, dispersion, skewness, and kurtosis. Additionally, examine whether there are any patterns or dependencies within the data. Different distributions have different shapes and properties, and selecting the appropriate one involves matching these properties with those observed in the data.
+- Assumptions and Constraints: Are there any assumptions or constraints that apply? Certain distributions may make specific assumptions about the nature of the data, such as independence of events, linearity, or constant variance. It's important to verify whether these assumptions are reasonable for the given context.
+- Context of the Problem: What is the context of the problem being addressed? The choice of distribution should make sense in the context of the problem you are trying to solve. For instance, in finance, if you are modeling stock returns, the choice of distribution might be influenced by the assumption that returns are log-normally distributed.
+- Model Interpretability: How easily can the model be interpreted and understood? A distribution that aligns with the characteristics of the data and the underlying processes simplifies interpretation. Complex models might be difficult to interpret and may not provide additional insights proportional to their complexity.",
 Cumulative distribution function,"All random variables (both discrete and continuous) have it.
 - F(c) ≡ Pr(X ≤ c)
 - 0 ≤ F(x) ≤ 1
@@ -105,8 +120,16 @@ The binomial distribution has a pmf like this:
 
 Mean = np
 Variance = np(1-p)",Univariate distribution,,
-Log-normal distribution,,Univariate distribution,,
-Cauchy distribution,,Univariate distribution,,
+Log-normal distribution,"The log-normal distribution is a CONTINUOUS probability distribution of a random variable whose logarithm is normally distributed. In other words, if X is log-normally distributed, then Y=ln(X) follows a normal (Gaussian) distribution.
+
+Asset Prices: Log-normal distribution is often used to model the distribution of asset prices, reflecting the multiplicative nature of returns. This assumption is consistent with the idea that small percentage changes in prices are more likely than large absolute changes.
+
+- Positivity: Log-normal distributions are well-suited for variables that are positive, as the logarithm ensures that the transformed variable covers the entire real number line.
+
+- Multiplicative Processes: When the underlying process involves multiplicative factors, the log-normal distribution is a natural choice. For example, if the value of a variable at one point in time influences its value at the next point in time, a log-normal distribution may be appropriate.
+
+- Data Transformation: In cases where the logarithm of a variable results in a distribution that is closer to normal, the log-normal distribution can simplify statistical analysis, as normal distributions are often easier to work with.",Univariate distribution,,
+Cauchy distribution,A CONTINUOUS probability distribution. I skip for now because it's too complicated for me.,Univariate distribution,,
 Bernoulli random variables,"Binary (or Bernoulli) random variables are important in social
 sciences: examples include female or male, employed or not, dead or
 alive.
@@ -123,5 +146,9 @@ Summing the squares of independent standard normal random variables. I am at fir
 
 Usually used in multiple categories of a domain/normal distribution for hypothesis testing, i.e. test to see if some genres of books have more customers than others",Univariate distribution,,
 t-distribution,"The t-distribution is symmetric and bell-shaped, similar to the standard normal distribution, but it has heavier tails. As the degrees of freedom increase, the t-distribution approaches the standard normal distribution. The t-distribution is commonly used in hypothesis testing and constructing confidence intervals, especially when dealing with small sample sizes.",Univariate distribution,,
+Laplace distribution,"CONTINUOUS probability distribution. Too complicated, I will explain later.",Univariate distribution,,
 Multivariate distribution,,Distribution,,
 Joint distribution,,Multivariate distribution,,
+Multivariate normal distribution,,Multivariate distribution,,
+Wishart distribution,,Multivariate distribution,,
+Multivariate t-distribution,,Multivariate distribution,,

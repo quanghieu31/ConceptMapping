@@ -1,0 +1,9 @@
+### Dec 26, 2023:
+- Completed several key univariate distributions
+- Next time:
++ finish multivariate distributions
++ follow bivariate and multivariate analysis on Wikipedia
++ estimation pt1 and estimation pt2 (lecture slides 3 and 5)
++ experiment (lecture slides 4) - focus on treatment/control analysis, RCT, matching, propensity score
++ distribution of estimates (very weird) (lecture 6)
++ data, types, sampling, measurement errors, admin data (lecture 7)
