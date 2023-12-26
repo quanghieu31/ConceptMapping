@@ -4,7 +4,7 @@ import dash_cytoscape as cyto
 import networkx as nx
 import pandas as pd
 import random
-from plotly.io import write_json  # Import the write_json function
+from plotly.io import write_json, write_html 
 
 # For reproducibility
 random.seed(31)
@@ -13,6 +13,7 @@ random.seed(31)
 data = pd.read_csv('statistics\\ConceptData.csv', header=0)
 # Initiate a Dash app.
 app = Dash(__name__)
+server = app.server
 cyto.load_extra_layouts()
 
 # Initiate the network graph.
@@ -129,5 +130,7 @@ app.layout = html.Div([
 ])
 
 if __name__ == '__main__':
-    write_json(app.layout, 'statistics\\statistics_network.json')
-    app.run_server(debug=True)
+    # write_json(app.layout, 'statistics\\statistics_network.json')
+    # with open('statistics\\statistics_network.html', 'w') as f:
+    #     f.write(app._generate_css() + app.index_string())
+    app.run(debug=True)

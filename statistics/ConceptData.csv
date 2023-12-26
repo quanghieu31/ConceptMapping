@@ -1,6 +1,13 @@
 ﻿concept1,concept1_desc,concept2,concept2_desc,relationship_desc
 Estimate,"Not fixed number. Use data to learn the properties for a sample. A sophisticated ""guess"".",Random variables,A variable that takes values according to a certain probability distribution,
 Parameter,Fixed number. Maybe aka the population stats.,Other,,
+Event,"An event is any subset of the sample space, including any singleton set (an elementary event), the empty set (an impossible event, with probability zero) and the sample space itself (a certain event, with probability one). 
+
+Examples of an event in a 52-card deck:
+- ""A King"" (4 elements)
+- ""The 5 of Hearts"" (1 element)
+- ""A Spade"" (13 elements)
+- ""A red/black card"" (0 element)",Other,,
 Univariate distribution,"A univariate distribution refers to the distribution of a single random variable. In other words, it describes the way in which the values of a single variable are spread or distributed. The term ""univariate"" emphasizes that we are focusing on the analysis of a single variable in isolation.",Distribution,"Refers to the way in which values of a variable are spread or distributed across a range. It provides information about the possible values a variable can take and the likelihood of each value occurring.
 - Can be derived from data directly (without any assumption of the distribution)
 - At the same time, use distribution to define data: yes, I know, I am confused about this too. But essentially, you look at the given data and decide hmm what distribution might best represent the data... for example: grades in a course might be a normal distribution and use properties of a normal dist to understand the distribution of grades",
@@ -55,7 +62,16 @@ Described by mean and variance. The famous bell curve.
 Standard normal dist: mean = 0 and var = 1
 
 Related to central limit theorem, hypothesis testing,…",Univariate distribution,,
-Poisson distribution,,Univariate distribution,,
+Poisson distribution,"A discrete probability distribution. Given a lambda number of events (expected mean/rate of occurrences) in a given interval, the probability of k independent events in the same interval has Poisson distribution. 
+
+Examples:
+- On a particular river, overflow floods occur once every 100 years on average (lambda = 1, interval = 100 years). Calculate the probability of k = 0, 1, 2, 3, 4, 5, or 6 overflow floods in a 100 year interval, assuming the Poisson model is appropriate.
+- It has been reported that the average number of goals in a World Cup soccer match is approximately 2.5 and the Poisson model is appropriate.
+
+It is the limit of a binomial distribution?
+- The events being modeled must be rare. Or, the prob of success (p) in each trial of the binomial distribution should be small and number of trials (n) should be large.  as n approaches infinity and p approaches 0 in such a way that the product np remains constant (=lambda), the binomial distribution converges to a Poisson distribution.
+- Constant rate of occurrence or lambda should be finite.
+- Number of successes and events in a fixed number of trials or a fixed interval",Univariate distribution,,
 Exponential distribution,"Is the probability distribution of the time between events in a Poisson point process, i.e., a process in which events occur continuously and independently at a constant average rate.
 
 It is often used to describe the distribution of time until the next event in a sequence of independent events.
