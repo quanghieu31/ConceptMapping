@@ -4,6 +4,7 @@ import dash_cytoscape as cyto
 import networkx as nx
 import pandas as pd
 import random
+from plotly.io import write_json  # Import the write_json function
 
 # For reproducibility
 random.seed(31)
@@ -117,8 +118,7 @@ app.layout = html.Div([
         layout={
              'name': 'klay',
              'avoidOverlap': True,    # Set to True to avoid node overlap
-            'spacingFactor': 1.25,    # Adjust the spacing between nodes (increase or decrease as needed)
-
+            'spacingFactor': 1.25,    # Adjust the spacing between nodes
         },
         elements=elements,
         style={'width': '75%', 'height': '100vh', 'float': 'left'},
@@ -129,4 +129,5 @@ app.layout = html.Div([
 ])
 
 if __name__ == '__main__':
+    write_json(app.layout, 'statistics\\statistics_network.json')
     app.run_server(debug=True)

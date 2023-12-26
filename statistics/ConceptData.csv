@@ -4,17 +4,17 @@ Parameter,Fixed number. Maybe aka the population stats.,Other,,
 Univariate distribution,"A univariate distribution refers to the distribution of a single random variable. In other words, it describes the way in which the values of a single variable are spread or distributed. The term ""univariate"" emphasizes that we are focusing on the analysis of a single variable in isolation.",Distribution,"Refers to the way in which values of a variable are spread or distributed across a range. It provides information about the possible values a variable can take and the likelihood of each value occurring.
 - Can be derived from data directly (without any assumption of the distribution)
 - At the same time, use distribution to define data: yes, I know, I am confused about this too. But essentially, you look at the given data and decide hmm what distribution might best represent the data... for example: grades in a course might be a normal distribution and use properties of a normal dist to understand the distribution of grades",
-CDF,"All random variables (both discrete and continuous) have it.
+Cumulative distribution function,"All random variables (both discrete and continuous) have it.
 - F(c) ≡ Pr(X ≤ c)
 - 0 ≤ F(x) ≤ 1
 - If xj < xk then F(xj) ≤ F(xk)
 - derivative of F(x) is f(x)",Univariate distribution,,A type of dist
-PMF,"All DISCRETE random variables have it.
+Probability mass function,"All DISCRETE random variables have it.
 - f(c) ≡ Pr(X = c)
 - 0 ≤ f(c) ≤ 1 for ∀c
 - Sum of f(x) for ∀x is 1
 - Sum f(x_i) from i=1 to j = F(x_j)",Univariate distribution,,A type of dist
-PDF,"All CONTINUOUS variables have it.
+Probability distribution function,"All CONTINUOUS variables have it.
 - f (x) ≥ 0 for ∀x
 - f(x) is not a probability and can be > 1
 - Pr(x = x0) = integral of f(x)dx from x0 to x0 = F(x0) - F(x0) = 0
@@ -25,7 +25,7 @@ E(x) ≡ µ
 - Continous: Integral of x * f(x)
 
 Properties:
-- If c is a constant, E(c) = c and E(cx) = cE(x)",Moments,"Central moments
+- If c is a constant, E(c) = c and E(cx) = cE(x)",Moments,"Central moments. Almost every distribution has some or all of the moments.
 
 There are examples of distributions that do not have particular moments. Something like:
 - zeta distribution and Riemann's zeta function
@@ -49,10 +49,63 @@ Skewness,"Third moment
 - if skewness is negative, distribution is skewed to left
 
 Very important, please dig deeper",Moments,,
-Normal distribution,,Univariate distribution,,
+Normal distribution,"Normal distribution or Gaussian distribution. 
+Described by mean and variance. The famous bell curve.
+
+Standard normal dist: mean = 0 and var = 1
+
+Related to central limit theorem, hypothesis testing,…",Univariate distribution,,
 Poisson distribution,,Univariate distribution,,
-Exponential distribution,,Univariate distribution,,
-Uniform distribution,,Univariate distribution,,
-Binomial distribution,,Univariate distribution,,
+Exponential distribution,"Is the probability distribution of the time between events in a Poisson point process, i.e., a process in which events occur continuously and independently at a constant average rate.
+
+It is often used to describe the distribution of time until the next event in a sequence of independent events.
+
+Memoryless property: Conditional probability of an event occurring within a specific future time interval is independent of the past. Mathematically, 
+P(X>s+t∣X>s)=P(X>t)
+
+Example: distribution of a lifetime of a lightbulb: the probability of a lightbulb to last in the next hours does not depend on itself or historical operational hours. The exponential distribution emphasizes the constant hazard/failure rate. This means the conditional probability of failure (the bulb dies) is the same regardless of the operational hours (0 vs 500 hours). 
+
+Why exponential distribution skewed?
+- Exponential decay: term e^(-x)
+- Memoryless property: 
+Constant Probability of Waiting: The memoryless property implies a constant probability per unit of time. It's like saying there's always a certain chance of the event happening in the next minute, no matter how much time has passed.
+No Accumulated Probability: The lack of memory means that the distribution doesn't ""accumulate"" probability towards the right. Even if you've already waited for a while, the distribution doesn't become more likely to make you wait longer",Univariate distribution,,
+Uniform distribution,"Suppose x ∈ [a, b] is a uniformly distributed continuous random
+variable. Then F(x) is a one-to-one function between x and p, which must be on [0, 1]
+Mathematical fact: If p = F(x) is a one-to-one function, then it has
+an inverse F^(−1)(p) = x
+
+Very important: If x is any continuous random variable,
+then p ≡ F(x) is a uniformly distributed random variable on [0, 1]
+=> For data simulation
+
+Meaning: every value is equally probable",Univariate distribution,,
+Binomial distribution,"The binomial distribution is the sum of binary random variables. It
+depends on p, the probability that a single variable is one, n is the
+number of different binary variables, and k is the number of cases in
+which our random variable equals one.
+The binomial distribution has a pmf like this:
+(n chooses k) * p^k * (1-p)^(n-k)
+
+Mean = np
+Variance = np(1-p)",Univariate distribution,,
 Log-normal distribution,,Univariate distribution,,
 Cauchy distribution,,Univariate distribution,,
+Bernoulli random variables,"Binary (or Bernoulli) random variables are important in social
+sciences: examples include female or male, employed or not, dead or
+alive.
+The interesting bit about binary variables is they can be completely
+described by one parameter, p = f (1).
+The pmf of binary random variable is just f (0) = (1 − p) and
+f (1) = p with a cdf of F(0) = 1 − p and F(1) = 1.
+
+- E(x) = p
+- Var(x) = p(1-p)",Univariate distribution,,
+Chi-squared distribution,"A special case of gamma function
+
+Summing the squares of independent standard normal random variables. I am at first skeptical about why it's univariate but not multi, and it's because it refers to the same domain of different variables/categories. i.e. books of various genres.
+
+Usually used in multiple categories of a domain/normal distribution for hypothesis testing, i.e. test to see if some genres of books have more customers than others",Univariate distribution,,
+t-distribution,"The t-distribution is symmetric and bell-shaped, similar to the standard normal distribution, but it has heavier tails. As the degrees of freedom increase, the t-distribution approaches the standard normal distribution. The t-distribution is commonly used in hypothesis testing and constructing confidence intervals, especially when dealing with small sample sizes.",Univariate distribution,,
+Multivariate distribution,,Distribution,,
+Joint distribution,,Multivariate distribution,,
