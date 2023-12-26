@@ -1,3 +1,3 @@
-Visualize key statistics concepts (for now) in a network fashion.
+Visualize key statistics concepts (for now) in a network fashion. I think I understand well if the concepts are connected visually. Experimenting on [https://stats-review-network.onrender.com/](https://stats-review-network.onrender.com/). Any kind and form feedback is very much appreciated! 
 
 Note to self: use `poetry export -f requirements.txt -o requirements.txt --without-hashes` to convert poetry dependencies to requirements.txt which is more eligible when deploying app.
